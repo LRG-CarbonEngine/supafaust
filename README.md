@@ -41,4 +41,4 @@ Setting "supafaust_renderer" to "st", to disable multithreaded PPU rendering,
 may improve performance on systems with only a single CPU with a single core.
 
 # Carbon Engine Functionality:
-superfaust GPL Source Code release does not include functionality for integrating with Steam, Nintendo Switch, PlayStation 4 or PlayStation 5. This includes profiles, achievements, the overlay, or any other proprietary features that are binded by the various platform NDA agreements.
+Supafaust GPL Source Code release does not include functionality for integrating with Steam, Nintendo Switch, PlayStation 4 or PlayStation 5. This includes profiles, achievements, the overlay, or any other proprietary features that are binded by the various platform NDA agreements.
