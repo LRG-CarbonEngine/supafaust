@@ -1,0 +1,59 @@
+MEDNAFEN_DIR := $(CORE_DIR)/mednafen
+
+INCFLAGS := -I$(CORE_DIR) \
+				-I$(MEDNAFEN_DIR) \
+				-I$(MEDNAFEN_DIR)/include
+
+SOURCES_CXX := \
+					$(MEDNAFEN_DIR)/mednafen.cpp \
+					$(MEDNAFEN_DIR)/endian.cpp \
+					$(MEDNAFEN_DIR)/git.cpp \
+					$(MEDNAFEN_DIR)/error.cpp \
+					$(MEDNAFEN_DIR)/settings.cpp \
+					$(MEDNAFEN_DIR)/mempatcher.cpp \
+					$(MEDNAFEN_DIR)/state.cpp \
+					$(MEDNAFEN_DIR)/string/string.cpp \
+					$(MEDNAFEN_DIR)/Stream.cpp \
+					$(MEDNAFEN_DIR)/FileStream.cpp \
+					$(MEDNAFEN_DIR)/VirtualFS.cpp \
+					$(MEDNAFEN_DIR)/NativeVFS.cpp \
+					$(MEDNAFEN_DIR)/ExtMemStream.cpp \
+					$(MEDNAFEN_DIR)/MemoryStream.cpp \
+					$(MEDNAFEN_DIR)/sound/DSPUtility.cpp \
+					$(MEDNAFEN_DIR)/sound/OwlResampler.cpp \
+					$(MEDNAFEN_DIR)/video/convert.cpp \
+					$(MEDNAFEN_DIR)/video/Deinterlacer_Blend.cpp \
+					$(MEDNAFEN_DIR)/video/Deinterlacer_Simple.cpp \
+					$(MEDNAFEN_DIR)/video/Deinterlacer.cpp \
+					$(MEDNAFEN_DIR)/video/surface.cpp \
+					$(MEDNAFEN_DIR)/cheat_formats/snes.cpp \
+					$(MEDNAFEN_DIR)/hash/sha1.cpp \
+					$(MEDNAFEN_DIR)/hash/sha256.cpp \
+					$(MEDNAFEN_DIR)/MTStreamReader.cpp
+
+ifeq ($(THREADING_TYPE),Win32)
+   SOURCES_CXX += $(MEDNAFEN_DIR)/mthreading/MThreading_Win32.cpp
+else
+   SOURCES_CXX += $(MEDNAFEN_DIR)/mthreading/MThreading_POSIX.cpp
+endif
+
+SOURCES_CXX += $(MEDNAFEN_DIR)/snes_faust/apu.cpp \
+					$(MEDNAFEN_DIR)/snes_faust/cpu.cpp \
+					$(MEDNAFEN_DIR)/snes_faust/ppu.cpp \
+					$(MEDNAFEN_DIR)/snes_faust/ppu_mt.cpp \
+					$(MEDNAFEN_DIR)/snes_faust/ppu_mtrender.cpp \
+					$(MEDNAFEN_DIR)/snes_faust/cart.cpp \
+					$(MEDNAFEN_DIR)/snes_faust/input.cpp \
+					$(MEDNAFEN_DIR)/snes_faust/snes.cpp \
+					$(MEDNAFEN_DIR)/snes_faust/cart/dsp1.cpp \
+					$(MEDNAFEN_DIR)/snes_faust/cart/dsp2.cpp \
+					$(MEDNAFEN_DIR)/snes_faust/cart/sdd1.cpp \
+					$(MEDNAFEN_DIR)/snes_faust/cart/cx4.cpp \
+					$(MEDNAFEN_DIR)/snes_faust/cart/superfx.cpp \
+					$(MEDNAFEN_DIR)/snes_faust/cart/sa1.cpp \
+					$(MEDNAFEN_DIR)/snes_faust/cart/sa1cpu.cpp \
+					$(MEDNAFEN_DIR)/snes_faust/msu1.cpp \
+					$(MEDNAFEN_DIR)/snes_faust/ppu_st.cpp
+
+SOURCES_CXX += $(CORE_DIR)/libretro.cpp
+
